@@ -1,12 +1,14 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+
 import { useForm } from '../Hooks/useForm';
 import { actionAddSync } from '../redux/actions/actionsProducts';
 
+
 const AddProducts = () => {
 
-    const dispacth = useDispatch()
+    const dispatch= useDispatch()
     const [formValue, handleInputChange, reset] = useForm({
         id: '',
         nombre: '',
@@ -16,7 +18,7 @@ const AddProducts = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formValue)
-        dispacth(actionAddSync(formValue))
+        dispatch(actionAddSync(formValue))
         reset()
     }
 
@@ -28,18 +30,21 @@ const AddProducts = () => {
                     name ="id"
                     placeholder="Ingrese Id" 
                     onChange={handleInputChange}
+                    value={formValue.id}
                     />
                      <input
                     type="text"
                     name ="nombre"
                     placeholder="Ingrese Nombre de Producto" 
-                    onChange={handleInputChange}               
+                    onChange={handleInputChange} 
+                    value={formValue.nombre}              
                     />
                      <input
                     type="text"
                     name ="precio"
                     placeholder="Precio del Producto en Pesos" 
                     onChange={handleInputChange}
+                    value={formValue.precio}
                     />
                     <Button type="submit">Enviar</Button>
             </Form>

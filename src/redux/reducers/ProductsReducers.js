@@ -1,20 +1,18 @@
 import { typesProducts } from "../types/types"
 
-const initialState={
+const initialState ={
     producto: []
 }
 
-export const ProductsReducers =(state = initialState, action) => {
+export const ProductsReducers = (state= initialState, action) =>{
     switch (action.type) {
-        case typesProducts.add:
-            return { 
+        case typesProducts.agregar:
+            return {
                 producto: [...state.producto, action.payload]
-               
             }
-            
-            
-    
+             
         default:
-            return state
+           return state
     }
+
 }

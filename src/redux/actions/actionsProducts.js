@@ -1,9 +1,8 @@
 import { typesProducts } from "../types/types"
 
-export const actionAddSync =(producto)=>{
-    return {
-        type: typesProducts.add,
-        payload: producto
+export const actionAddSync = (formValue)=>{
+    return{
+        type: typesProducts.agregar,
+        payload: formValue
     }
-
 }
